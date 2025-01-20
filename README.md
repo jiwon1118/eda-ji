@@ -15,4 +15,4 @@ $ jupyter lab
 
 ### Ref
 - [install jupyterlab](https://jupyter.org/install)
-
+- [install president](https://pypi.org/project/president-speech/)
