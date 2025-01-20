@@ -20,9 +20,9 @@ distribution = true
 
 
 [dependency-groups]
-eda = [
-    "jupyterlab>=4.3.4",
-]
 test = [
     "pytest>=8.3.4",
+]
+eda = [
+    "jupyterlab>=4.3.4",
 ]
