@@ -18,6 +18,9 @@ build-backend = "pdm.backend"
 [tool.pdm]
 distribution = true
 
+[project.scripts]
+eda-ji = "eda_ji.cli:group_by_count"
+
 
 [dependency-groups]
 test = [
@@ -26,3 +29,4 @@ test = [
 eda = [
     "jupyterlab>=4.3.4",
 ]
+
