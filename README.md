@@ -1,11 +1,20 @@
 # eda-ji
 
+![LGTM](https://i.lgtm.fun/1yei.gif)
 presidents ranked by mentions of ('You Want to know') in their speeches!
 
 ### USE
 ```
-groupby()
-sort_value()
+$ pip install eda-ji
+$ python
+>>> from eda-ji.cli import group_by_count
+>>> group_by_count(keyword, bool, n) # 오름차순/내림차순, 상위 n개 출력
+
+
+eda-ji --help 참고
+
+eda-ji keyword --ascen(오름차순) --n num(상위 n개)
+or --no-ascen(내림차순)
 ```
 
 ### DEV
@@ -21,6 +30,9 @@ $ pdm install
 
 $ vi src/eda_ji/cli.py
 $ eda-ji - test
+
+$ vi tests/test_first.py
+$ pytest
 
 $ git add
 $ git commit
