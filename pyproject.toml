@@ -1,11 +1,11 @@
 [project]
 name = "eda-ji"
-version = "0.1.0"
+version = "0.3.0"
 description = "Default template for PDM package"
 authors = [
     {name = "<jiwon1118>", email = "<b23386585@gmail.com>"},
 ]
-dependencies = []
+dependencies = ["pandas>=2.2.3", "president-speech>=0.9.1", "typer>=0.15.1"]
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
@@ -17,3 +17,16 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[project.scripts]
+eda-ji = "eda_ji.cli:entry_point"
+
+
+[dependency-groups]
+test = [
+    "pytest>=8.3.4",
+]
+eda = [
+    "jupyterlab>=4.3.4",
+]
+
