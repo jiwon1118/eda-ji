@@ -1,11 +1,11 @@
 # eda-ji
 
-presidents ranked by mentions of the Olympics in their speeches!
+presidents ranked by mentions of ('You Want to know') in their speeches!
 
 ### USE
 ```
-groupby( )
-sort_value( )
+groupby()
+sort_value()
 ```
 
 ### DEV
@@ -14,6 +14,7 @@ $ source .venv/bin/activate
 $ pdm add pandas
 $ pdm add -dG eda jupyterlab
 $ pdm add president-speech
+$ pdm add typer
 
 $ vi pyproject.toml
 $ pdm install
@@ -36,3 +37,4 @@ $ jupyter lab
 ### Ref
 - [install jupyterlab](https://jupyter.org/install)
 - [install president](https://pypi.org/project/president-speech/)
+- [Typer](https://pypi.org/project/typer)

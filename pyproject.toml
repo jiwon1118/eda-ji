@@ -5,7 +5,7 @@ description = "Default template for PDM package"
 authors = [
     {name = "<jiwon1118>", email = "<b23386585@gmail.com>"},
 ]
-dependencies = ["pandas>=2.2.3", "president-speech>=0.9.1"]
+dependencies = ["pandas>=2.2.3", "president-speech>=0.9.1", "typer>=0.15.1"]
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
@@ -19,7 +19,7 @@ build-backend = "pdm.backend"
 distribution = true
 
 [project.scripts]
-eda-ji = "eda_ji.cli:group_by_count"
+eda-ji = "eda_ji.cli:entry_point"
 
 
 [dependency-groups]
