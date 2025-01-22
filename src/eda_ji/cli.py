@@ -12,7 +12,8 @@ def group_by_count(keyword: str, ascen: bool=False, n: int=12) -> pd.DataFrame:
     print(rdf)
     return rdf
 
-
+# 추가 요청사항
+# 검색 단어가 등장하는 ROW 에 speech_text 속에 해당 단어가 나오는 횟수를 모두 count 하여 그 총합을 대통령별로 다시 sum
 
 def entry_point():
     typer.run(group_by_count)
