@@ -35,4 +35,4 @@ def print_group_by_count(keyword: str, ascen: bool=False, n: int=12, keyword_sum
     print(df.to_string(index=False))
 
 def entry_point():
-    typer.run(group_by_count)
+    typer.run(print_group_by_count)
