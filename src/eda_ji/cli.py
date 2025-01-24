@@ -1,6 +1,9 @@
 from president_speech.db.parquet_interpreter import get_parquet_full_path
 import pandas as pd
 import typer
+from tqdm import tqdm
+import time
+from tabulate import tabulate
 
 # 추가 요청사항
 # 검색 단어가 등장하는 ROW 에 speech_text 속에 해당 단어가 나오는 횟수를 모두 count 하여 그 총합을 대통령별로 다시 sum
@@ -32,7 +35,19 @@ def group_by_count(keyword: str, asc: bool=False, rcnt: int=12, keyword_sum: boo
 
 def print_group_by_count(keyword: str, asc: bool=False, rcnt: int=12, keyword_sum: bool=False):
     df = group_by_count(keyword, asc, rcnt, keyword_sum)
-    print(df.to_string(index=False))
+    # 프로그래스바 추가 - df의 컬럼 숫자 * row 숫자 + sleep
+    for i in tqdm(range(len(df.columns) *len(df))):
+        time.sleep(0.15)
+    
+    hs = ["president", "count"]
+    if keyword_sum:
+        hs.append("keyword_sum")
+
+    t = tabulate(df, headers= hs, tablefmt='github', showindex=False)
+
+    print(t)
+    #print(tabulate(df))
+    #print(df.to_string(index=False))
 
 def entry_point():
     typer.run(print_group_by_count)
