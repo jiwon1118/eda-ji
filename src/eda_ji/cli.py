@@ -37,17 +37,22 @@ def print_group_by_count(keyword: str, asc: bool=False, rcnt: int=12, keyword_su
     df = group_by_count(keyword, asc, rcnt, keyword_sum)
     # 프로그래스바 추가 - df의 컬럼 숫자 * row 숫자 + sleep
     for i in tqdm(range(len(df.columns) *len(df))):
-        time.sleep(0.15)
-    
+        time.sleep(0.1)
+    # tabulate 추가
     hs = ["president", "count"]
     if keyword_sum:
         hs.append("keyword_sum")
 
     t = tabulate(df, headers= hs, tablefmt='github', showindex=False)
-
     print(t)
     #print(tabulate(df))
     #print(df.to_string(index=False))
+
+    # termplotlib
+    import termplotlib as tpl
+    fig = tpl.figure()
+    fig.barh(df['count'], df['president'], force_ascii=True)
+    fig.show()
 
 def entry_point():
     typer.run(print_group_by_count)
