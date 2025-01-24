@@ -2,7 +2,7 @@
 
 ![LGTM](https://i.lgtm.fun/1yei.gif)
 presidents ranked by mentions of ('You Want to know') in their speeches!
-
++ Possible to output the total count of how many times the keyword was mentioned in all speeches by each president.
 ### USE
 ```
 $ pip install eda-ji
@@ -13,7 +13,7 @@ $ python
 
 eda-ji --help 참고
 
-eda-ji keyword --ascen(오름차순) --n num(상위 n개)
+$ eda-ji keyword --asc(오름차순) --rnct (상위 n개) --keyword-sum(연설 속 키워드 총 합계)
 or --no-ascen(내림차순)
 ```
 
@@ -50,3 +50,4 @@ $ jupyter lab
 - [install jupyterlab](https://jupyter.org/install)
 - [install president](https://pypi.org/project/president-speech/)
 - [Typer](https://pypi.org/project/typer)
+

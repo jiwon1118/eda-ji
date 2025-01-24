@@ -20,7 +20,7 @@ presidents_speeches = {
 def test_search():
     row_count = 13
     # When
-    df = group_by_count(keyword="자유", ascen=True, n=row_count)
+    df = group_by_count(keyword="자유", asc=True, rcnt=row_count)
     # assert
     assert isinstance(df, pd.DataFrame) 
     assert len(df) < row_count
@@ -29,7 +29,7 @@ def test_noascen():
     row_count = 3
     is_asc = True
     # When
-    df = group_by_count(keyword="자유", ascen=is_asc, n=row_count)
+    df = group_by_count(keyword="자유", asc=is_asc, rcnt=row_count)
     # assert
     assert isinstance(df, pd.DataFrame)
     assert df.iloc[0]["president"] == "윤보선"
@@ -39,7 +39,7 @@ def test_ascen():
     row_count = 3
     is_asc = False
     # When
-    df = group_by_count(keyword="자유", ascen=is_asc, n=row_count)
+    df = group_by_count(keyword="자유", asc=is_asc, rcnt=row_count)
     # assert
     assert isinstance(df, pd.DataFrame)
     assert df.iloc[0]["president"] == "박정희"
@@ -50,7 +50,7 @@ def test_sort(is_asc,president):
     row_count = 3
 
     # When
-    df = group_by_count(keyword="자유", ascen=is_asc, n=row_count)
+    df = group_by_count(keyword="자유", asc=is_asc, rcnt=row_count)
     
     # assert
     assert isinstance(df, pd.DataFrame)

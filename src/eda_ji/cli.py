@@ -13,7 +13,7 @@ def add_keyword_count(df: pd.DataFrame, keyword: str) -> pd.DataFrame:
     df['keyword_count'] = df['speech_text'].str.count(keyword)
     return df
 
-def group_by_count(keyword: str, ascen: bool=False, n: int=12, keyword_sum: bool=False) -> pd.DataFrame:
+def group_by_count(keyword: str, asc: bool=False, rcnt: int=12, keyword_sum: bool=False) -> pd.DataFrame:
     data_path = get_parquet_full_path() # 데이터 경로 가져오기 
     df = pd.read_parquet(data_path)  # 데이터 프레임으로 로드
     fdf = df[df['speech_text'].str.contains(keyword, case=False)] # 키워드가 들어간 연설 필터링 
@@ -23,15 +23,15 @@ def group_by_count(keyword: str, ascen: bool=False, n: int=12, keyword_sum: bool
             count=("speech_text", "size"),  # 연설 개수
             keyword_sum=("keyword_count", "sum")  # keyword 발생 횟수 합산
         )
-        sdf = gdf.sort_values(by=["keyword_sum", "count"], ascending=[ascen, ascen]).reset_index()
+        sdf = gdf.sort_values(by=["keyword_sum", "count"], ascending=[asc, asc]).reset_index()
     else:
         gdf = fdf.groupby("president").size().reset_index(name="count")
-        sdf = gdf.sort_values(by='count', ascending=ascen).reset_index(drop=True)
-    rdf = sdf.head(n)
+        sdf = gdf.sort_values(by='count', ascending=asc).reset_index(drop=True)
+    rdf = sdf.head(rcnt)
     return rdf
 
-def print_group_by_count(keyword: str, ascen: bool=False, n: int=12, keyword_sum: bool=False):
-    df = group_by_count(keyword, ascen, n, keyword_sum)
+def print_group_by_count(keyword: str, asc: bool=False, rcnt: int=12, keyword_sum: bool=False):
+    df = group_by_count(keyword, asc, rcnt, keyword_sum)
     print(df.to_string(index=False))
 
 def entry_point():
