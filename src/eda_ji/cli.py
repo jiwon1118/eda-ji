@@ -53,6 +53,9 @@ def print_group_by_count(keyword: str, asc: bool=False, rcnt: int=12, keyword_su
     fig = tpl.figure()
     fig.barh(df['count'], df['president'], force_ascii=True)
     fig.show()
-
+    # keyword_sum 이 활성화 되면 keywotd_sum 들어가게 하기
+    if keyword_sum:
+        fig.barh(df['keyword_sum'], df['president'], force_ascii=True)
+        fig.show()
 def entry_point():
     typer.run(print_group_by_count)
